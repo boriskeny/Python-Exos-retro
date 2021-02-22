@@ -1,12 +1,12 @@
 from random import *
 t={}
 
+val = [0,1,2,3,4,5,6,7,8]
 
 def init(t):
     for i in range(0,9):
         t[i]=' '
 
-val = [0,1,2,3,4,5,6,7,8]
 
 def afficherTexte(t):
     texte= f"\t{t[0]}{t[1]}{t[2]}\t012\n\t{t[3]}{t[4]}{t[5]}\t345\n\t{t[6]}{t[7]}{t[8]}\t678"
@@ -33,8 +33,6 @@ def remplir(t, v):
     t[t2[0]]=v
     
     
-    
-    
 def verifier(t,v):
         
     if   t[0] == t[1] == t[2] == v:
@@ -55,6 +53,7 @@ def verifier(t,v):
         return True
     else: return False
 
+
 def remplirContre(t,lettre):
     gg = [[0,1,2],[3,4,5],[6,7,8],[0,3,4],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
     coun = 0
@@ -74,6 +73,7 @@ def remplirContre(t,lettre):
         else: coun+=1
         
     if coun==8: remplirAtak(t, lettre)
+
 
 def remplirAtak(t,lettre):
     gg = [[0,1,2],[3,4,5],[6,7,8],[0,3,4],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
@@ -127,6 +127,7 @@ def jouer(t):
         print(quiGagne(t)+" !!!!!!👍")
         print("fin du jeu")
     
+    
 def quiGagne(t):
     if verifier(t, 'O') == True: return "joueur O"
     
@@ -138,6 +139,7 @@ def quiGagne(t):
 def isVide(tv):
     return tv==tInit
     
+    
 def isFinish(t):
     nb=0
     for i in range(9):
@@ -145,5 +147,5 @@ def isFinish(t):
             nb+=1
     return nb
 
-jouer(t)            
-        
+if __name__ == '__main__':
+    jouer(t)            
